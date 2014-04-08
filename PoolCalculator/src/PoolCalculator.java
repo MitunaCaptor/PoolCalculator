@@ -12,6 +12,7 @@ public class PoolCalculator extends JPanel
 	{
 		new PoolCalculator();
 	}
+	private JFrame mainFrame;
 	
 	private JLabel poolWidthLabel;
 	private JLabel poolLengthLabel;
@@ -28,6 +29,8 @@ public class PoolCalculator extends JPanel
 
 	public PoolCalculator()
 	{
+		mainFrame = new JFrame();
+		
 		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
 		poolLengthLabel = new JLabel(" Enter the height of the swimming pool ");
 		poolDepthLabel = new JLabel(" Enter the depth of the swimming pool ");
@@ -56,6 +59,29 @@ public class PoolCalculator extends JPanel
 		
 		add(CalculateVolButton);
 		add(ExitButton);
+		
+		CalculateVolButton.setMnemonic('C'); 
+		ExitButton.setMnemonic('X');
+		
+		
+		mainFrame.addWindowListener(new WindowAdapter()
+        {
+          public void windowClosing(WindowEvent e) {System.exit(0);}
+        });
+		
+		
+		CalculateButtonHandler chandler = new CalculateButtonHandler(); 
+        CalculateVolButton.addActionListener(chandler);
+
+        ExitButtonHandler ehandler = new ExitButtonHandler(); 
+        ExitButton.addActionListener(ehandler);     
+
+        FocusHandler focusHandler = new FocusHandler();
+        LengthInput.addFocusListener(focusHandler); 
+        WidthInput.addFocusListener(focusHandler);
+        DepthInput.addFocusListener(focusHandler);
+        VolumeInput.addFocusListener(focusHandler);
+        
 		
 		
 	}
