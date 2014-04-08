@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.Event.*;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -30,10 +31,17 @@ public class HotTubs extends JPanel
 		hotTubGroup.add(radioButton);
 		
 		
+		
 		cmdCalculate = new JButton("Calculate");
 		cmdExit		 = new JButton("Exit");
 		
-		JFrame.addWindowListener(new WindowAdapter)
+		JFrame.addWindowListener(new WindowAdapter()
+		 {
+        	public void windowClosing(WindowEvent e)
+        	{
+        		System.exit(0);
+        	}
+          });
 		
 		
 		
