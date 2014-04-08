@@ -2,24 +2,21 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class PoolCalculator extends JFrame{
+public class PoolCalculator extends JPanel
+{
 	
-	/**
-	 * main entry point of the calculator app
-	 * @param args
-	 */
+	private static final long serialVersionUID = 1L;
+
+
 	public static void main(String[] args) 
 	{
-		PoolCalculator PoolCalculator = new PoolCalculator();
-		PoolCalculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		new PoolCalculator();
 	}
 	
-	/**
-	 * 
-	 */
+
 	public PoolCalculator()
 	{
-		super ("The Official Pool Calculator");
+		super ();
 		
 		JTabbedPane tab = new JTabbedPane();
 		JLabel l1 = new JLabel("Welcome To The Official Pool Calculator. Please Choose The Proper Tab For your project.");
