@@ -1,14 +1,13 @@
 
 public class MainClassSample {
 
+	/**
+	 * NOTE - MAIN HAS BEEN MOVED TO PoolCalculator.java - use that instead
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		//test
-		
-		//test2
-		
-		System.out.println("main method finished");
+		throw new Error("main has been moved PoolCalculator.java - use that instead");
 	}
 
 }
