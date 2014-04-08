@@ -1,4 +1,10 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
+
 import javax.swing.*;
 
 
@@ -70,10 +76,10 @@ public class PoolCalculator extends JPanel
         });
 		
 		
-		CalculateButtonHandler chandler = new CalculateButtonHandler(); 
+		CalculateButtonHandler cHandler = new CalculateButtonHandler(); 
         CalculateVolButton.addActionListener(chandler);
 
-        ExitButtonHandler ehandler = new ExitButtonHandler(); 
+        ExitButtonHandler eHandler = new ExitButtonHandler(); 
         ExitButton.addActionListener(ehandler);     
 
         FocusHandler focusHandler = new FocusHandler();
@@ -86,8 +92,52 @@ public class PoolCalculator extends JPanel
 		
 	}
 		
+	class CalculateButtonHandler implements ActionListener 
+	{
+        public void actionPerformed(ActionEvent e)
+        {
+          DecimalFormat num = new DecimalFormat(",###.##");
+          String input;      
+          double length, width, depth, volume;
+
+          LengthInput.setEnabled(true);       
+          input = LengthInput.getText(); 
+            
+          if (input.equals(""))
+          {
+            input = "0";
+            LengthInput.setText("0");
+          }     
+          length = Double.parseDouble(input);  
+          input = WidthInput.getText();  
+            
+          if (input.equals(""))
+          {
+            input = "0";
+            WidthInput.setText("0");
+          }     
+          width = Double.parseDouble(input); 
+          input = DepthInput.getText(); 
+          
+          if (input.equals(""))
+          {
+            input = "0";
+            DepthInput.setText("0");
+          }     
+          depth = Double.parseDouble(input);
+          
+          volume = length * width * depth;     
+          VolumeInput.setText(num.format(volume));
+        }
+      }
 		
-		
+	class ExitButtonHandler implements ActionListener
+    {
+      public void actionPerformed(ActionEvent e)
+      {
+        System.exit(0);
+      }
+    } 	
 	
 
 
