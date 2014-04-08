@@ -8,7 +8,8 @@ public class HotTubs extends JPanel
 
 	private static final long serialVersionUID = 1L;
 
-	public static void initializeHotTubs() {
+	public static void initializeHotTubs() 
+	{
 		
 		JFrame frame = new JFrame("Lister v1.0");
 		
