@@ -13,21 +13,23 @@ public class PoolCalculator extends JPanel
 		new PoolCalculator();
 	}
 	
-	private JLabel poolWidth;
-	private JLabel poolHeight;
-	private JLabel poolDepth;
-	private JLabel poolVolume;
+	private JLabel poolWidthLabel;
+	private JLabel poolHeightLabel;
+	private JLabel poolDepthLabel;
+	private JLabel poolVolumeLabel;
 	
-	private JField WidthInput;
-	private JField HeightInput;
-	private JField DepthInput;
-	private JField VolumeInput;
+	private JTextField WidthInput;
+	private JTextField HeightInput;
+	private JTextField DepthInput;
+	private JTextField VolumeInput;
 	
 	private JButton CalculateVol;
 	private JButton Exit;
 
 	public PoolCalculator()
 	{
+		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
+		poolHeightLabel = new JLabel(" Enter the height of the swimming pool ");
 		
 		
 		
