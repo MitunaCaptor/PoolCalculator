@@ -7,6 +7,8 @@ public class MainClassSample {
 		//test
 		
 		//test2
+		
+		System.out.println("main method finished");
 	}
 
 }
