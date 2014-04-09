@@ -3,11 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 import javax.swing.*;
+
 
 
 public class PoolCalculator extends JPanel
@@ -21,7 +24,8 @@ public class PoolCalculator extends JPanel
 		new PoolCalculator();
 	}
 	
-	private JFrame mainFrame;
+	
+	private JPanel panelN, panelS, panelC;
 	
 	private JLabel poolWidthLabel;
 	private JLabel poolLengthLabel;
@@ -38,7 +42,7 @@ public class PoolCalculator extends JPanel
 
 	public PoolCalculator()
 	{
-		mainFrame = new JFrame();
+		
 		
 		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
 		poolLengthLabel = new JLabel(" Enter the length of the swimming pool ");
@@ -51,11 +55,14 @@ public class PoolCalculator extends JPanel
 		LengthInput = new JTextField(5);
 		DepthInput = new JTextField(5);
 		VolumeInput = new JTextField(10);
+		;
 		
 		this.VolumeInput.setEditable(false);
 		
+		
 		add(poolWidthLabel);
 		add(WidthInput);
+		
 		
 		add(poolLengthLabel);
 		add(LengthInput);
@@ -63,9 +70,10 @@ public class PoolCalculator extends JPanel
 		add(poolDepthLabel);
 		add(DepthInput);
 		
+		
 		add(CalculateVolButton);
 		add(ExitButton);
-		
+
 		add(poolVolumeLabel);
 		add(VolumeInput);
 		
@@ -73,11 +81,6 @@ public class PoolCalculator extends JPanel
 		CalculateVolButton.setMnemonic('C'); 
 		ExitButton.setMnemonic('X');
 		
-		
-		mainFrame.addWindowListener(new WindowAdapter()
-        {
-          public void windowClosing(WindowEvent e) {System.exit(0);}
-        });
 		
 		
 		CalculateButtonHandler cHandler = new CalculateButtonHandler(); 
@@ -133,6 +136,38 @@ public class PoolCalculator extends JPanel
           
           volume = length * width * depth;     
           VolumeInput.setText(num.format(volume));
+          
+          try
+          {
+        	  FileWriter fileW = new FileWriter("Data.txt", true);
+        	  System.out.println("Writing data to Data.txt file");
+        	  fileW.write("Lenth:");
+        	  fileW.write(LengthInput.getText());
+        	  fileW.write(",");
+        	  fileW.write(" ");
+        	  fileW.write("Width:");
+        	  fileW.write(WidthInput.getText());
+        	  fileW.write(",");
+        	  fileW.write(" ");
+        	  fileW.write("Depth:");
+        	  fileW.write(DepthInput.getText());
+        	  fileW.write(",");
+        	  fileW.write(" ");
+        	  fileW.write("Volume:");
+        	  fileW.write(VolumeInput.getText());
+        	  fileW.write(",");
+        	  fileW.close();
+        	  
+        	  FileReader fileR = new FileReader("Data.txt");
+        	  BufferedReader buffIn = new BufferedReader(fileR);
+        	  String textData = buffIn.readLine();
+        	  System.out.println(textData);
+        	  buffIn.close();System.out.print("\n");
+          }
+          catch(IOException el)
+          {
+        	  JOptionPane.showMessageDialog(null, el.getMessage(), "ERROR", 2);
+          }
         }
       }
 		
@@ -186,7 +221,6 @@ public class PoolCalculator extends JPanel
 		}
 		
 	}
-
 
 
 }
