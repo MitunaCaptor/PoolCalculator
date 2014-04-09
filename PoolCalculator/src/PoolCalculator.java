@@ -1,6 +1,8 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
@@ -18,6 +20,7 @@ public class PoolCalculator extends JPanel
 	{
 		new PoolCalculator();
 	}
+	
 	private JFrame mainFrame;
 	
 	private JLabel poolWidthLabel;
@@ -38,7 +41,7 @@ public class PoolCalculator extends JPanel
 		mainFrame = new JFrame();
 		
 		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
-		poolLengthLabel = new JLabel(" Enter the height of the swimming pool ");
+		poolLengthLabel = new JLabel(" Enter the length of the swimming pool ");
 		poolDepthLabel = new JLabel(" Enter the depth of the swimming pool ");
 		poolVolumeLabel = new JLabel(" Swimming pool volume ");
 		CalculateVolButton = new JButton(" Calcuate ");
@@ -60,11 +63,12 @@ public class PoolCalculator extends JPanel
 		add(poolDepthLabel);
 		add(DepthInput);
 		
+		add(CalculateVolButton);
+		add(ExitButton);
+		
 		add(poolVolumeLabel);
 		add(VolumeInput);
 		
-		add(CalculateVolButton);
-		add(ExitButton);
 		
 		CalculateVolButton.setMnemonic('C'); 
 		ExitButton.setMnemonic('X');
@@ -77,10 +81,10 @@ public class PoolCalculator extends JPanel
 		
 		
 		CalculateButtonHandler cHandler = new CalculateButtonHandler(); 
-        CalculateVolButton.addActionListener(chandler);
+        CalculateVolButton.addActionListener(cHandler);
 
         ExitButtonHandler eHandler = new ExitButtonHandler(); 
-        ExitButton.addActionListener(ehandler);     
+        ExitButton.addActionListener(eHandler);     
 
         FocusHandler focusHandler = new FocusHandler();
         LengthInput.addFocusListener(focusHandler); 
@@ -101,24 +105,25 @@ public class PoolCalculator extends JPanel
           double length, width, depth, volume;
 
           LengthInput.setEnabled(true);       
-          input = LengthInput.getText(); 
-            
+          input = LengthInput.getText();   
           if (input.equals(""))
           {
             input = "0";
             LengthInput.setText("0");
           }     
-          length = Double.parseDouble(input);  
-          input = WidthInput.getText();  
-            
+          length = Double.parseDouble(input);
+          
+          WidthInput.setEnabled(true); 
+          input = WidthInput.getText();   
           if (input.equals(""))
           {
             input = "0";
             WidthInput.setText("0");
           }     
-          width = Double.parseDouble(input); 
-          input = DepthInput.getText(); 
+          width = Double.parseDouble(input);
           
+          DepthInput.setEnabled(true); 
+          input = DepthInput.getText(); 
           if (input.equals(""))
           {
             input = "0";
@@ -139,6 +144,48 @@ public class PoolCalculator extends JPanel
       }
     } 	
 	
+	class FocusHandler implements FocusListener
+	{
+		public void focusGained (FocusEvent e)
+		{
+			if(e.getSource() == WidthInput)
+			{
+				WidthInput.setText(" ");
+				VolumeInput.setText(" ");
+			}
+			
+			else if(e.getSource() == LengthInput)
+			{
+				LengthInput.setText(" ");
+				VolumeInput.setText(" ");
+			}
+			
+			else if(e.getSource() == DepthInput)
+			{
+				DepthInput.setText(" ");
+				VolumeInput.setText(" ");
+			}
+		}
+		
+		public void focusLost(FocusEvent e)
+		{
+			if (e.getSource() == WidthInput)
+			{
+				CalculateVolButton.setFocusable(true);;
+			}
+			
+			else if (e.getSource() == LengthInput)
+			{
+				CalculateVolButton.setFocusable(true);;
+			}
+			
+			else if (e.getSource() == DepthInput)
+			{
+				CalculateVolButton.setFocusable(true);;
+			}
+		}
+		
+	}
 
 
 

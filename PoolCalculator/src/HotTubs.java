@@ -1,5 +1,4 @@
-import java.awt.*;
-import java.awt.Event.*;
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -10,11 +9,15 @@ public class HotTubs extends JPanel
 {
 
 	private static final long serialVersionUID = 1L;
+	
+	private JButton cmdCalculate;
+	private JButton cmdExit;
+	private JFrame mainFrame;
 
-	public static void initializeHotTubs() 
+	public HotTubs() 
 	{
 		
-		JFrame frame = new JFrame("Lister v1.0");
+		mainFrame = new JFrame();
 		
 		JPanel hotTubPanel = new JPanel();
 		
@@ -34,8 +37,13 @@ public class HotTubs extends JPanel
 		
 		cmdCalculate = new JButton("Calculate");
 		cmdExit		 = new JButton("Exit");
+		mainFrame = new JFrame();
 		
-		JFrame.addWindowListener(new WindowAdapter()
+		add(cmdCalculate);
+		add(cmdExit);
+		
+		
+		mainFrame.addWindowListener(new WindowAdapter()
 		 {
         	public void windowClosing(WindowEvent e)
         	{
