@@ -55,7 +55,7 @@ public class PoolCalculator extends JPanel
 		LengthInput = new JTextField(5);
 		DepthInput = new JTextField(5);
 		VolumeInput = new JTextField(10);
-		;
+		
 		
 		this.VolumeInput.setEditable(false);
 		
@@ -206,17 +206,17 @@ public class PoolCalculator extends JPanel
 		{
 			if (e.getSource() == WidthInput)
 			{
-				CalculateVolButton.setFocusable(true);;
+				CalculateVolButton.setFocusable(true);
 			}
 			
 			else if (e.getSource() == LengthInput)
 			{
-				CalculateVolButton.setFocusable(true);;
+				CalculateVolButton.setFocusable(true);
 			}
 			
 			else if (e.getSource() == DepthInput)
 			{
-				CalculateVolButton.setFocusable(true);;
+				CalculateVolButton.setFocusable(true);
 			}
 		}
 		
