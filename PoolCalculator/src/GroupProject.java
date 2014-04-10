@@ -21,7 +21,7 @@ public class GroupProject extends JFrame
 		gui2.addTab("Swimming Pool", new PoolCalculator());
 		gui2.addTab("Hot Tubs", new HotTubs());
 		gui2.addTab("Conversion", new Conversion());
-		gui2.addTab("Settings", new Settings());
+		
 		
 		//gui2.addTab();
 		//gui2.addTab();
@@ -44,6 +44,8 @@ public class GroupProject extends JFrame
 		GroupProject tab2 = new GroupProject();
 		new PoolCalculator();
 		new HotTubs();
+		new Conversion();
+		new Settings();
 		
 		tab2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
