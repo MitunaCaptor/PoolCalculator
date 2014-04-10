@@ -40,7 +40,7 @@ public class Settings extends JPanel
 		
 		CompanyNameInput = new JTextField(5);
 		
-		
+		 
 		add(CompanyNameLabel);
 		add(CompanyNameInput);
 		
