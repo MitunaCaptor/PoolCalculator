@@ -25,7 +25,7 @@ public class PoolCalculator extends JPanel
 	}
 	
 	
-	private JPanel panelN, panelS, panelC;
+	
 	
 	private JLabel poolWidthLabel;
 	private JLabel poolLengthLabel;

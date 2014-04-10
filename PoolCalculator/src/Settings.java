@@ -7,6 +7,8 @@ import java.text.DecimalFormat;
 
 import javax.swing.*;
 
+import PoolCalculator.CalculateButtonHandler;
+
 
 
 public class Settings extends JPanel
@@ -46,7 +48,12 @@ public class Settings extends JPanel
 		
 		add(ApplySettingsButton);
 		add(ExitButton);
+		
+		ApplySettingsButtonHandler cHandler = new ApplySettingsButtonHandler(); 
+		ApplySettingsButton.addActionListener(cHandler);
 	}
+
+	
 	
 	
 	
