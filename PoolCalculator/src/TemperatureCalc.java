@@ -43,7 +43,7 @@ public class TemperatureCalc extends JPanel
 	private JButton ExitButton;
 	private JButton ConvertButton;
 
-	public PoolCalculator()
+	public TemperatureCalculator()
 	{
 		
 		
