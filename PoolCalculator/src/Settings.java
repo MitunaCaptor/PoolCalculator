@@ -1,0 +1,14 @@
+
+public class Settings {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Company Name Change
+		
+		// Metric vs Imperial
+		
+		// Other settings?
+	}
+
+}
