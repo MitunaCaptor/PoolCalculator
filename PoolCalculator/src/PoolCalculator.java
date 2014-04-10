@@ -141,7 +141,7 @@ public class PoolCalculator extends JPanel
           {
         	  FileWriter fileW = new FileWriter("Data.txt", true);
         	  System.out.println("Writing data to Data.txt file");
-        	  fileW.write("Lenth:");
+        	  fileW.write("Length:");
         	  fileW.write(LengthInput.getText());
         	  fileW.write(",");
         	  fileW.write(" ");

@@ -180,6 +180,11 @@ public class Conversion extends JPanel
           
           meters = centimeters * 10;  
           centimeters = meters / 10;  
+          millimeters = centimeters / 10;
+          
+          inches = feet / 12;
+          feet = yards / 3;
+          yards = feet * 3;
           
        
         }
