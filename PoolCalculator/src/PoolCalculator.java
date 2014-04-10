@@ -155,7 +155,7 @@ public class PoolCalculator extends JPanel
         	  fileW.write(" ");
         	  fileW.write("Volume:");
         	  fileW.write(VolumeInput.getText());
-        	  fileW.write(",");
+        	  fileW.write("\n");
         	  fileW.close();
         	  
         	  FileReader fileR = new FileReader("Data.txt");

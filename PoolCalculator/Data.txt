@@ -1,0 +1,17 @@
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 34, Depth: 34, Volume:36,992
+Lenth: 32, Width: 43, Depth: 34, Volume:46,784
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth: 32, Width:67, Depth: 34, Volume:72,896
+Lenth:65, Width:67, Depth: 34, Volume:148,070
