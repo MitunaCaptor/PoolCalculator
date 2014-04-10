@@ -20,7 +20,8 @@ public class GroupProject extends JFrame
 		
 		gui2.addTab("Swimming Pool", new PoolCalculator());
 		gui2.addTab("Hot Tubs", new HotTubs());
-		
+		gui2.addTab("Conversion", new Conversion());
+		gui2.addTab("Settings", new Settings());
 		
 		//gui2.addTab();
 		//gui2.addTab();

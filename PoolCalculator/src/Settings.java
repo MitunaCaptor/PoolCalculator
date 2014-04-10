@@ -6,7 +6,7 @@ public class Settings {
 
 		// Company Name Change
 		
-		// Metric vs Imperial
+		// Metric versus Imperial
 		
 		// Other settings?
 	}
