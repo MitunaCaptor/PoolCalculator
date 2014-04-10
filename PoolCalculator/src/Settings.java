@@ -31,7 +31,7 @@ public class Settings extends JPanel
 	private JButton ApplySettingsButton;
 	private JButton ExitButton;
 
-	public void Conversion()
+	public void Settings()
 	{
 		CompanyNameLabel = new JLabel("Enter Company Name: ");
 
