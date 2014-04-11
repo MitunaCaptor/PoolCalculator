@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 import javax.swing.*;
 
-import PoolCalculator.CalculateButtonHandler;
+
 
 
 
@@ -53,8 +53,22 @@ public class Settings extends JPanel
 		ApplySettingsButton.addActionListener(cHandler);
 	}
 
-	
-	
+	class ApplySettingsButtonHandler implements ActionListener 
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			String input;
+			CompanyNameInput.setEnabled(true);       
+	        input = CompanyNameInput.getText();
+	        if (input.equals(""))
+	          {
+	            input = "0";
+	            CompanyNameInput.setText("0");
+	          }
+	        
+		}
+	}
+
 	
 	
 }

@@ -47,7 +47,7 @@ public class GroupProject extends JFrame
 		new HotTubs();
 		new Conversion();
 		new Settings();
-		Settings.setTitle();
+		
 		
 		tab2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
