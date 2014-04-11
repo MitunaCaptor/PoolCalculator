@@ -2,21 +2,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.text.DecimalFormat;
 
 import javax.swing.JButton;
+//import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import PoolCalculator.CalculateButtonHandler;
-import PoolCalculator.ExitButtonHandler;
-import PoolCalculator.FocusHandler;
+
 
 
 public class TemperatureCalc extends JPanel 
@@ -31,146 +27,104 @@ public class TemperatureCalc extends JPanel
 	}
 	
 	
-	private JPanel panelN, panelS, panelC;
+	
 	
 	private JLabel EnterTemp;
-	private JLabel Result;
+	private JLabel ResultLabel;
 	
 	private JTextField TempInput;
 	private JTextField ResultOutput;
-    private JTextField SystemMessages;
+    
 	
 	private JButton ExitButton;
 	private JButton ConvertButton;
-
-	public TemperatureCalculator()
+	
+	//private String [] items = {"F", "C"};
+	//private	JComboBox TypeIn =  new JComboBox(items);
+	
+	
+	public TemperatureCalc()
 	{
 		
-		
-		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
-		poolLengthLabel = new JLabel(" Enter the length of the swimming pool ");
-		poolDepthLabel = new JLabel(" Enter the depth of the swimming pool ");
-		poolVolumeLabel = new JLabel(" Swimming pool volume ");
-		CalculateVolButton = new JButton(" Calcuate ");
+	    
+	    
+		EnterTemp = new JLabel(" Enter the temperature ");
+		ResultLabel = new JLabel(" Result ");
+		ConvertButton = new JButton(" Convert ");
 		ExitButton = new JButton(" Exit ");
 		
-		WidthInput = new JTextField(5);
-		LengthInput = new JTextField(5);
-		DepthInput = new JTextField(5);
-		VolumeInput = new JTextField(10);
-		;
+		TempInput = new JTextField(5);
+		ResultOutput = new JTextField(10);
 		
-		this.VolumeInput.setEditable(false);
+		this.ResultOutput.setEditable(false);
 		
 		
-		add(poolWidthLabel);
-		add(WidthInput);
+		add(EnterTemp);
+		add(TempInput);
+		//add(TypeIn);
 		
 		
-		add(poolLengthLabel);
-		add(LengthInput);
+		add(ResultLabel);
+		add(ResultOutput);
 		
-		add(poolDepthLabel);
-		add(DepthInput);
-		
-		
-		add(CalculateVolButton);
+		add(ConvertButton);
 		add(ExitButton);
-
-		add(poolVolumeLabel);
-		add(VolumeInput);
 		
 		
-		CalculateVolButton.setMnemonic('C'); 
+		
+		ConvertButton.setMnemonic('C'); 
 		ExitButton.setMnemonic('X');
 		
 		
 		
-		CalculateButtonHandler cHandler = new CalculateButtonHandler(); 
-        CalculateVolButton.addActionListener(cHandler);
+		ConvertButtonHandler cHandler = new ConvertButtonHandler(); 
+        ConvertButton.addActionListener(cHandler);
 
         ExitButtonHandler eHandler = new ExitButtonHandler(); 
         ExitButton.addActionListener(eHandler);     
 
         FocusHandler focusHandler = new FocusHandler();
-        LengthInput.addFocusListener(focusHandler); 
-        WidthInput.addFocusListener(focusHandler);
-        DepthInput.addFocusListener(focusHandler);
-        VolumeInput.addFocusListener(focusHandler);
+        TempInput.addFocusListener(focusHandler); 
         
 		
 		
 	}
 		
-	class CalculateButtonHandler implements ActionListener 
+	class ConvertButtonHandler implements ActionListener 
 	{
         public void actionPerformed(ActionEvent e)
         {
           DecimalFormat num = new DecimalFormat(",###.##");
           String input;      
-          double length, width, depth, volume;
+          double fahrenheit;
 
-          LengthInput.setEnabled(true);       
-          input = LengthInput.getText();   
+          TempInput.setEnabled(true);
+          
+          input = TempInput.getText();
+          //if(TypeIn.getSelectedIndex() == 0)  
           if (input.equals(""))
           {
             input = "0";
-            LengthInput.setText("0");
-          }     
-          length = Double.parseDouble(input);
+            TempInput.setText("0");
+          } 
+          fahrenheit = Double.parseDouble(input);
+          ResultOutput.setText(num.format((fahrenheit - 32)*(5/9)));
           
-          WidthInput.setEnabled(true); 
-          input = WidthInput.getText();   
+          
+          /*if(TypeIn.getSelectedIndex() == 1) 
           if (input.equals(""))
           {
             input = "0";
-            WidthInput.setText("0");
-          }     
-          width = Double.parseDouble(input);
-          
-          DepthInput.setEnabled(true); 
-          input = DepthInput.getText(); 
-          if (input.equals(""))
-          {
-            input = "0";
-            DepthInput.setText("0");
-          }     
-          depth = Double.parseDouble(input);
-          
-          volume = length * width * depth;     
-          VolumeInput.setText(num.format(volume));
-          
-          try
-          {
-        	  FileWriter fileW = new FileWriter("Data.txt", true);
-        	  System.out.println("Writing data to Data.txt file");
-        	  fileW.write("Length:");
-        	  fileW.write(LengthInput.getText());
-        	  fileW.write(",");
-        	  fileW.write(" ");
-        	  fileW.write("Width:");
-        	  fileW.write(WidthInput.getText());
-        	  fileW.write(",");
-        	  fileW.write(" ");
-        	  fileW.write("Depth:");
-        	  fileW.write(DepthInput.getText());
-        	  fileW.write(",");
-        	  fileW.write(" ");
-        	  fileW.write("Volume:");
-        	  fileW.write(VolumeInput.getText());
-        	  fileW.write("\n");
-        	  fileW.close();
-        	  
-        	  FileReader fileR = new FileReader("Data.txt");
-        	  BufferedReader buffIn = new BufferedReader(fileR);
-        	  String textData = buffIn.readLine();
-        	  System.out.println(textData);
-        	  buffIn.close();System.out.print("\n");
+            TempInput.setText("0");
           }
-          catch(IOException el)
+          else
           {
-        	  JOptionPane.showMessageDialog(null, el.getMessage(), "ERROR", 2);
-          }
+          celcius = Double.parseDouble(input);
+          fahrenheit = celcius * (9 / 5) + 32;
+          ResultOutput.setText(num.format(fahrenheit));
+          }  */  
+          
+      
         }
       }
 		
@@ -186,41 +140,22 @@ public class TemperatureCalc extends JPanel
 	{
 		public void focusGained (FocusEvent e)
 		{
-			if(e.getSource() == WidthInput)
+			if(e.getSource() == TempInput)
 			{
-				WidthInput.setText(" ");
-				VolumeInput.setText(" ");
+				TempInput.setText("");
+				ResultOutput.setText("");
 			}
 			
-			else if(e.getSource() == LengthInput)
-			{
-				LengthInput.setText(" ");
-				VolumeInput.setText(" ");
-			}
-			
-			else if(e.getSource() == DepthInput)
-			{
-				DepthInput.setText(" ");
-				VolumeInput.setText(" ");
-			}
 		}
 		
 		public void focusLost(FocusEvent e)
 		{
-			if (e.getSource() == WidthInput)
+			if (e.getSource() == TempInput)
 			{
-				CalculateVolButton.setFocusable(true);;
+				ConvertButton.setFocusable(true);;
 			}
 			
-			else if (e.getSource() == LengthInput)
-			{
-				CalculateVolButton.setFocusable(true);;
-			}
 			
-			else if (e.getSource() == DepthInput)
-			{
-				CalculateVolButton.setFocusable(true);;
-			}
 		}
 		
 	}
