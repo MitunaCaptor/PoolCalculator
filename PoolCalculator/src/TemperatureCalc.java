@@ -6,7 +6,7 @@ import java.awt.event.FocusListener;
 import java.text.DecimalFormat;
 
 import javax.swing.JButton;
-//import javax.swing.JComboBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 import javax.swing.JPanel;
@@ -96,7 +96,7 @@ public class TemperatureCalc extends JPanel
         {
           DecimalFormat num = new DecimalFormat(",###.##");
           String input;      
-          double fahrenheit;
+          double fahrenheit, celcius;
 
           TempInput.setEnabled(true);
           
@@ -108,7 +108,8 @@ public class TemperatureCalc extends JPanel
             TempInput.setText("0");
           } 
           fahrenheit = Double.parseDouble(input);
-          ResultOutput.setText(num.format((fahrenheit - 32)*(5/9)));
+          celcius = (fahrenheit - 32)*(5/9);
+          ResultOutput.setText(num.format(celcius));
           
           
           /*if(TypeIn.getSelectedIndex() == 1) 
@@ -162,3 +163,4 @@ public class TemperatureCalc extends JPanel
 
 
 }
+
