@@ -1,1 +1,9 @@
 Length: 24, Width: 25, Depth: 21, Volume:12,600
+Length:0, Width:0, Depth:0, Volume:0
+Length:0, Width:0, Depth:0, Volume:0
+Length:0, Width:0, Depth:0, Volume:0
+Length:0, Width:0, Depth:0, Volume:0
+Length:0, Width:0, Depth:0, Volume:0
+Length: 45, Width: 4, Depth: 5, Volume:900
+Length: 45, Width: 4, Depth: 5, Volume:900
+Length: 45, Width: 4, Depth: 5, Volume:900
