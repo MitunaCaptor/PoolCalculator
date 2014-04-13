@@ -47,7 +47,7 @@ public class GroupProject extends JFrame {
 		new TemperatureCalc();
 
 		tab2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 	}
 
 }
