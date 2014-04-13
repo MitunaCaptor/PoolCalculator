@@ -3,8 +3,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class Customers {
+import javax.swing.JPanel;
 
+public class Customers extends JPanel{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final String userName = "foxly_cis";
 	private final String password = "professorliu";
 	private final String serverName = "198.251.76.197";

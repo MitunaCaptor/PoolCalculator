@@ -15,12 +15,13 @@ public class GroupProject extends JFrame {
 		JTabbedPane gui2 = new JTabbedPane();
 		getContentPane().add(gui2);
 
-		gui2.addTab("General", new General());
+		
 		gui2.addTab("Swimming Pool", new PoolCalculator());
 		gui2.addTab("Hot Tubs", new HotTubs());
 		gui2.addTab("Conversion", new Conversion());
-		gui2.addTab("Settings", new Settings());
 		gui2.addTab("Temperature Conversion", new TemperatureCalc());
+		gui2.addTab("Settings", new Settings());
+		gui2.addTab("General", new General());
 
 		// gui2.addTab();
 		// gui2.addTab();

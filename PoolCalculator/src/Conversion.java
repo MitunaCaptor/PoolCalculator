@@ -21,7 +21,7 @@ public class Conversion extends JPanel
 	}
 	
 	
-	private JPanel panelN, panelS, panelC;
+	
 	
 	
 	private JLabel ImperialInchesLabel;
