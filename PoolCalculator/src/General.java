@@ -18,10 +18,11 @@ public class General extends JPanel {
 
 	public General() {
 		Message = new JLabel("Current Date & Time: ");
+		Message.setBounds(150,35,150,20);
 
-		String date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-				.format(new Date());
+		String date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
 		DateTime = new JLabel(date);
+		DateTime.setBounds(350,35,150,20);
 
 		Info = new JLabel("Welcome to Pool Caulcuator & Database Alpha |");
 
@@ -30,12 +31,6 @@ public class General extends JPanel {
 		add(Message);
 		add(DateTime);
 
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		new General();
 	}
 
 }
