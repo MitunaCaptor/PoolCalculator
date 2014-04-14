@@ -12,14 +12,7 @@ import javax.swing.*;
 public class Conversion extends JPanel
 {
 	
-	private static final long serialVersionUID = 1L;
-
-
-	public static void main(String[] args) 
-	{
-		new Conversion();
-	}
-	
+	private static final long serialVersionUID = 3L;
 	
 	
 	
@@ -55,11 +48,11 @@ public class Conversion extends JPanel
 		CalculateConversionButton = new JButton("Calculate");
 		ExitButton = new JButton("Exit");
 		
-		InchesInput = new JTextField(5);
-		FeetInput = new JTextField(5);
-		YardsInput = new JTextField(5);
-		MillimetersInput = new JTextField(5);
-		CentimetersInput = new JTextField(5);
+		InchesInput = new JTextField(10);
+		FeetInput = new JTextField(10);
+		YardsInput = new JTextField(10);
+		MillimetersInput = new JTextField(10);
+		CentimetersInput = new JTextField(10);
 		MetersInput = new JTextField(10);
 		
 		
@@ -173,14 +166,19 @@ public class Conversion extends JPanel
           meters = Double.parseDouble(input);
           
           
-          
           meters = centimeters * 10;  
           centimeters = meters / 10;  
           millimeters = centimeters / 10;
-          
           inches = feet / 12;
           feet = yards / 3;
           yards = feet * 3;
+          
+          InchesInput.setText(num.format(inches));
+          YardsInput.setText(num.format(yards));
+          FeetInput.setText(num.format(feet));
+          MillimetersInput.setText(num.format(millimeters));
+          CentimetersInput.setText(num.format(centimeters));
+          MetersInput.setText(num.format(meters));
           
        
         }
