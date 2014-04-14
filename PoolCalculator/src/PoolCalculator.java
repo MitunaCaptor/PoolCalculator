@@ -19,9 +19,6 @@ public class PoolCalculator extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public static void main(String[] args) {
-		new PoolCalculator();
-	}
 
 	private JLabel poolWidthLabel;
 	private JLabel poolLengthLabel;
@@ -38,7 +35,7 @@ public class PoolCalculator extends JPanel {
 
 	public PoolCalculator() {
 
-		setLayout(new GridLayout(0, 2));
+		setLayout(null);
 
 		poolWidthLabel = new JLabel(" Enter the width of the swimming pool ");
 		poolLengthLabel = new JLabel(" Enter the length of the swimming pool ");
@@ -55,20 +52,30 @@ public class PoolCalculator extends JPanel {
 		this.VolumeInput.setEditable(false);
 
 		add(poolWidthLabel);
+		poolWidthLabel.setBounds( 200, 25, 260, 20 );
 		add(WidthInput);
+		WidthInput.setBounds( 500, 25, 150, 20 );
 
 		add(poolLengthLabel);
+		poolLengthLabel.setBounds( 200, 60, 260, 20 );
 		add(LengthInput);
+		LengthInput.setBounds( 500, 60, 150, 20 );
 
 		add(poolDepthLabel);
+		poolDepthLabel.setBounds( 200, 100, 260, 20 );
 		add(DepthInput);
+		DepthInput.setBounds( 500, 100, 150, 20 );
 
 		add(CalculateVolButton);
+		CalculateVolButton.setBounds(250,250,150,20);
 		add(ExitButton);
+		ExitButton.setBounds(450,250,150,20);
 
 		add(poolVolumeLabel);
+		poolVolumeLabel.setBounds(200,300,150,20);
 		add(VolumeInput);
-
+		VolumeInput.setBounds(500,300,150,20);
+		
 		CalculateVolButton.setMnemonic('C');
 		ExitButton.setMnemonic('X');
 
