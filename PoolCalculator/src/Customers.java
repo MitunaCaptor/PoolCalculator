@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import javax.swing.JPanel;
 
-public class Customers extends JPanel{
+public class Customers extends JPanel {
 
 	/**
 	 * 
@@ -28,6 +28,14 @@ public class Customers extends JPanel{
 	 * for changes use DROP TABLE CustomerDatabase;
 	 */
 
+	public Customers() {
+		// customer list display
+
+		// buttons
+
+		// message area
+	}
+	
 	public Connection getConnection() throws SQLException {
 		Connection conn = null;
 		Properties connectionProps = new Properties();
