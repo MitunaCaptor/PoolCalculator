@@ -29,7 +29,11 @@ public class TemperatureCalc extends JPanel
 
 	private JButton ExitButton;
 	private JButton ConvertButton;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> FETCH_HEAD
 	private String [] items = {"F", "C"};
 	private	JComboBox TypeIn =  new JComboBox(items);
 	
@@ -52,6 +56,10 @@ public class TemperatureCalc extends JPanel
 		add(EnterTemp);
 		add(TempInput);
 		add(TypeIn);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> FETCH_HEAD
 		
 		add(ResultLabel);
 		add(ResultOutput);
