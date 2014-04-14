@@ -33,7 +33,7 @@ public class GroupProject extends JFrame {
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
 
-		setSize(screenWidth / 4, screenHeight / 2);
+		setSize(screenWidth / 2, screenHeight / 2);
 		setLocation(screenWidth / 4, screenHeight / 4);
 
 	}
