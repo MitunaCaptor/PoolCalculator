@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 
 public class Customers extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final String userName = "foxly_cis";
 	private final String password = "professorliu";
 	private final String serverName = "198.251.76.197";
@@ -31,7 +35,7 @@ public class Customers extends JPanel {
 
 		// message area
 	}
-
+	
 	public Connection getConnection() throws SQLException {
 		Connection conn = null;
 		Properties connectionProps = new Properties();

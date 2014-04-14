@@ -19,7 +19,7 @@ public class TemperatureCalc extends JPanel
 
 {
 	
-	private static final long serialVersionUID = 69L;
+	private static final long serialVersionUID = 1L;
 	
 	public static void main(String[] args) 
 	{
@@ -39,8 +39,8 @@ public class TemperatureCalc extends JPanel
 	private JButton ExitButton;
 	private JButton ConvertButton;
 	
-	//private String [] items = {"F", "C"};
-	//private	JComboBox TypeIn =  new JComboBox(items);
+	private String [] items = {"F", "C"};
+	private	JComboBox TypeIn =  new JComboBox(items);
 	
 	
 	public TemperatureCalc()
@@ -61,7 +61,7 @@ public class TemperatureCalc extends JPanel
 		
 		add(EnterTemp);
 		add(TempInput);
-		//add(TypeIn);
+		add(TypeIn);
 		
 		
 		add(ResultLabel);
