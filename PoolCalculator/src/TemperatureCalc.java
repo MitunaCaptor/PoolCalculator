@@ -10,14 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TemperatureCalc extends JPanel 
+public class TemperatureCalc extends JPanel
 
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	public static void main(String[] args) 
-	{
+
+	public static void main(String[] args) {
 		new TemperatureCalc();
 	}
 
@@ -29,20 +28,12 @@ public class TemperatureCalc extends JPanel
 
 	private JButton ExitButton;
 	private JButton ConvertButton;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> FETCH_HEAD
-	private String [] items = {"F", "C"};
-	private	JComboBox TypeIn =  new JComboBox(items);
-	
-	
-	public TemperatureCalc()
-	{
-		
-	    
-	    
+	private String[] items = { "F", "C" };
+	private JComboBox TypeIn = new JComboBox(items);
+
+	public TemperatureCalc() {
+
 		EnterTemp = new JLabel(" Enter the temperature ");
 		ResultLabel = new JLabel(" Result ");
 		ConvertButton = new JButton(" Convert ");
@@ -56,11 +47,7 @@ public class TemperatureCalc extends JPanel
 		add(EnterTemp);
 		add(TempInput);
 		add(TypeIn);
-<<<<<<< HEAD
-=======
-		
->>>>>>> FETCH_HEAD
-		
+
 		add(ResultLabel);
 		add(ResultOutput);
 
