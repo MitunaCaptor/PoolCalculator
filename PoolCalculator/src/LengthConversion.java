@@ -9,7 +9,7 @@ import javax.swing.*;
 
 
 
-public class Conversion extends JPanel
+public class LengthConversion extends JPanel
 {
 	
 	private static final long serialVersionUID = 3L;
@@ -34,7 +34,7 @@ public class Conversion extends JPanel
 	private JButton CalculateConversionButton;
 	private JButton ExitButton;
 
-	public Conversion()
+	public LengthConversion()
 	{
 		
 		

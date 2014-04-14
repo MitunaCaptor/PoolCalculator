@@ -18,7 +18,7 @@ public class GroupProject extends JFrame {
 		gui2.addTab("General", new General());
 		gui2.addTab("Swimming Pool", new PoolCalculator());
 		gui2.addTab("Hot Tubs", new HotTubs());
-		gui2.addTab("Length Conversion", new Conversion());
+		gui2.addTab("Length Conversion", new LengthConversion());
 		gui2.addTab("Temperature Conversion", new TemperatureCalc());
 		gui2.addTab("Customers", new Customers());
 		gui2.addTab("Settings", new Settings());
@@ -40,7 +40,7 @@ public class GroupProject extends JFrame {
 		new General();
 		new PoolCalculator();
 		new HotTubs();
-		new Conversion();
+		new LengthConversion();
 		new TemperatureCalc();
 		new Settings();
 		new Customers();
