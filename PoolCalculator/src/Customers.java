@@ -3,7 +3,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class Customers {
+import javax.swing.JPanel;
+
+public class Customers extends JPanel {
 
 	private final String userName = "foxly_cis";
 	private final String password = "professorliu";
@@ -21,6 +23,14 @@ public class Customers {
 	 * 
 	 * for changes use DROP TABLE CustomerDatabase;
 	 */
+
+	public Customers() {
+		// customer list display
+
+		// buttons
+
+		// message area
+	}
 
 	public Connection getConnection() throws SQLException {
 		Connection conn = null;
