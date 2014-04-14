@@ -23,10 +23,7 @@ public class GroupProject extends JFrame {
 		gui2.addTab("Customers", new Customers());
 		gui2.addTab("Settings", new Settings());
 
-		// gui2.addTab();
-		// gui2.addTab();
-		// gui2.addTab();
-
+		
 		getContentPane().add(gui2);
 		setVisible(true);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
