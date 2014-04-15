@@ -26,7 +26,7 @@ public class TemperatureCalc extends JPanel
 	private JButton ConvertButton;
 
 	private String[] items = { "F", "C" };
-	private JComboBox TypeIn = new JComboBox(items);
+	private JComboBox<?> TypeIn;
 
 	public TemperatureCalc() {
 
@@ -34,21 +34,30 @@ public class TemperatureCalc extends JPanel
 		ResultLabel = new JLabel(" Result ");
 		ConvertButton = new JButton(" Convert ");
 		ExitButton = new JButton(" Exit ");
+		TypeIn = new JComboBox<Object>(items);
 
-		TempInput = new JTextField(5);
+		TempInput = new JTextField(10);
 		ResultOutput = new JTextField(10);
 
 		this.ResultOutput.setEditable(false);
-
+		setLayout(null);
+		
 		add(EnterTemp);
+		EnterTemp.setBounds( 250, 25, 260, 20 );
 		add(TempInput);
+		TempInput.setBounds( 500, 25, 70, 20 );
 		add(TypeIn);
+		TypeIn.setBounds( 600, 25, 50, 20 );
 
 		add(ResultLabel);
+		ResultLabel.setBounds( 250, 70, 260, 20 );
 		add(ResultOutput);
+		ResultOutput.setBounds( 500, 70, 70, 20 );
 
 		add(ConvertButton);
+		ConvertButton.setBounds( 250, 115, 100, 20 );
 		add(ExitButton);
+		ExitButton.setBounds( 500, 115, 100, 20 );
 
 		ConvertButton.setMnemonic('C');
 		ExitButton.setMnemonic('X');
@@ -67,28 +76,37 @@ public class TemperatureCalc extends JPanel
 	class ConvertButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			DecimalFormat num = new DecimalFormat(",###.##");
-			String input;
-			double fahrenheit, celcius;
+			
+			double fahrenheit = 0, celcius = 0;
 
 			TempInput.setEnabled(true);
-
-			input = TempInput.getText();
-			// if(TypeIn.getSelectedIndex() == 0)
-			if (input.equals("")) {
-				input = "0";
-				TempInput.setText("0");
+			if(items[0] != null)
+			{
+				if (!TempInput.getText().equals(""))
+				{
+				fahrenheit = Double.parseDouble(TempInput.getText());
+				celcius = (Double)(fahrenheit - 32)*(5)/(9);
+				ResultOutput.setText(num.format(celcius));
+				}
+				else
+				{
+				ResultOutput.setText("0");
+				}
 			}
-			fahrenheit = Double.parseDouble(input);
-			celcius = (fahrenheit - 32) * (5 / 9);
-			ResultOutput.setText(num.format(celcius));
-
-			/*
-			 * if(TypeIn.getSelectedIndex() == 1) if (input.equals("")) { input
-			 * = "0"; TempInput.setText("0"); } else { celcius =
-			 * Double.parseDouble(input); fahrenheit = celcius * (9 / 5) + 32;
-			 * ResultOutput.setText(num.format(fahrenheit)); }
-			 */
-
+			else if(items[1] != null)
+			{
+				if (!TempInput.getText().equals(""))
+				{
+				celcius = Double.parseDouble(TempInput.getText());
+				fahrenheit = (Double)(celcius) * (9) / (5) + 32;
+				ResultOutput.setText(num.format(fahrenheit));
+				}
+				else
+				{
+				ResultOutput.setText("0");
+				}
+			}
+			
 		}
 	}
 
@@ -110,7 +128,7 @@ public class TemperatureCalc extends JPanel
 		public void focusLost(FocusEvent e) {
 			if (e.getSource() == TempInput) {
 				ConvertButton.setFocusable(true);
-				;
+				
 			}
 
 		}

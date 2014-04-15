@@ -2,16 +2,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -31,72 +27,100 @@ public class HotTubs extends JPanel {
 		new HotTubs();
 	}
 
-	private JLabel TubWidthLabel;
-	private JLabel TubLengthLabel;
-	private JLabel TubDepthLabel;
-	private JLabel TubVolumeLabel;
+	private JButton Calculate;
+	private JButton Exit;
+	
+	private JLabel poolWidthLabel;
+	private JLabel poolLengthLabel;
+	private JLabel poolDepthLabel;
+	private JLabel poolVolumeLabel;
 
 	private JTextField WidthInput;
 	private JTextField LengthInput;
 	private JTextField DepthInput;
 	private JTextField VolumeInput;
-
-	private JButton CalculateVolButton;
-	private JButton ExitButton;
-
-	private JRadioButton RoundRadio;
-	private JRadioButton OvalRadio;
+	
+	private JRadioButton rdbtnRoundTub;
+	private JRadioButton rdbtnOvalTub;
 
 	public HotTubs() {
 
-		TubWidthLabel = new JLabel(" Enter the width of the Hot Tub ");
-		TubLengthLabel = new JLabel(" Enter the length of the Hot Tub ");
-		TubDepthLabel = new JLabel(" Enter the depth of the Hot Tub ");
-		TubVolumeLabel = new JLabel(" The Volume of the Hot Tub is: ");
-		CalculateVolButton = new JButton(" Calcuate ");
-		ExitButton = new JButton(" Exit ");
-		RoundRadio = new JRadioButton("Please Select Round Tub ");
-		OvalRadio = new JRadioButton(" or an Oval Tub ");
+		setLayout(null);
+		
+		rdbtnRoundTub = new JRadioButton("RoundTub"); 
+		rdbtnRoundTub.setSelected(true);  
+		rdbtnRoundTub.setBounds(250, 7, 109, 23);
+		add(rdbtnRoundTub);
+		
+		rdbtnOvalTub = new JRadioButton("Oval Tub"); 
+		rdbtnOvalTub.setSelected(true);  
+		rdbtnOvalTub.setBounds(500, 7, 109, 23);
+		add(rdbtnOvalTub);
+		
+		rdbtnRoundTub.addActionListener(new ActionListener(){ 
+			public void actionPerformed(ActionEvent arg0){ 
+				WidthInput.setEditable(false); 
+			}});
+		
+		  
+		rdbtnOvalTub.addActionListener(new ActionListener(){ 
+			public void actionPerformed(ActionEvent arg0){ 
+				WidthInput.setEditable(true); 
+			}});
+		
+		ButtonGroup radioBtnGroup = new ButtonGroup();
+		radioBtnGroup.add(rdbtnRoundTub);
+		radioBtnGroup.add(rdbtnOvalTub);
 
-		WidthInput = new JTextField(5);
-		LengthInput = new JTextField(5);
-		DepthInput = new JTextField(5);
+		poolWidthLabel = new JLabel(" Enter the width of the swimming pool (ft)");
+		poolLengthLabel = new JLabel(" Enter the length of the swimming pool (ft)");
+		poolDepthLabel = new JLabel(" Enter the depth of the swimming pool (ft)");
+		poolVolumeLabel = new JLabel(" Swimming pool volume (ft)");
+		WidthInput = new JTextField(10);
+		LengthInput = new JTextField(10);
+		DepthInput = new JTextField(10);
 		VolumeInput = new JTextField(10);
-
-		ButtonGroup tb = new ButtonGroup();
-		tb.add(RoundRadio);
-		tb.add(OvalRadio);
-
+		
 		this.VolumeInput.setEditable(false);
-
-		add(RoundRadio);
-		add(OvalRadio);
-		add(TubWidthLabel);
+		
+		add(poolWidthLabel);
+		poolWidthLabel.setBounds( 250, 60, 260, 20 );
 		add(WidthInput);
+		WidthInput.setBounds( 500, 60, 50, 20 );
 
-		add(TubLengthLabel);
+		add(poolLengthLabel);
+		poolLengthLabel.setBounds( 250, 100, 260, 20 );
 		add(LengthInput);
+		LengthInput.setBounds( 500, 100, 50, 20 );
 
-		add(TubDepthLabel);
+		add(poolDepthLabel);
+		poolDepthLabel.setBounds( 250, 140, 260, 20 );
 		add(DepthInput);
+		DepthInput.setBounds( 500, 140, 50, 20 );
 
-		add(CalculateVolButton);
-		add(ExitButton);
-
-		add(TubVolumeLabel);
+		
+		Calculate = new JButton("Calculate");
+		Calculate.setMnemonic('C');
+		add(Calculate);
+		Calculate.setBounds(250, 200, 109, 23);
+		
+		
+		Exit = new JButton("Exit");
+		Exit.setMnemonic('X');
+		add(Exit);
+		Exit.setBounds(500, 200, 109, 23);
+		
+		add(poolVolumeLabel);
+		poolVolumeLabel.setBounds(250,250,260,20);
 		add(VolumeInput);
-
-		RoundRadio.setMnemonic('R');
-		OvalRadio.setMnemonic('O');
-		CalculateVolButton.setMnemonic('C');
-		ExitButton.setMnemonic('X');
-
+		VolumeInput.setBounds(500,250,50,20);
+		
 		CalculateButtonHandler cHandler = new CalculateButtonHandler();
-		CalculateVolButton.addActionListener(cHandler);
+		Calculate.addActionListener(cHandler);
 
 		ExitButtonHandler eHandler = new ExitButtonHandler();
-		ExitButton.addActionListener(eHandler);
-
+		Exit.addActionListener(eHandler);
+		
 		FocusHandler focusHandler = new FocusHandler();
 		LengthInput.addFocusListener(focusHandler);
 		WidthInput.addFocusListener(focusHandler);
@@ -104,14 +128,7 @@ public class HotTubs extends JPanel {
 		VolumeInput.addFocusListener(focusHandler);
 
 	}
-
-	/*
-	 * Guys after many hrs. I'm totally stump on the radio button, the only
-	 * thing I came up with was If (RoundButton.IsEnable()){...} else
-	 * if(OvalButton.IsEnable()... which still wont work, thus I left at a code
-	 * where the project will still run
-	 */
-
+	
 	class CalculateButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			DecimalFormat num = new DecimalFormat(",###.##");
@@ -141,44 +158,19 @@ public class HotTubs extends JPanel {
 				DepthInput.setText("0");
 			}
 			depth = Double.parseDouble(input);
-
+			
+			if(rdbtnRoundTub.isSelected()) 
+			{
+				volume = length / (2.0) * depth;
+				VolumeInput.setText(num.format(volume));
+			}
+			else
+			{
 			volume = length * width * depth;
 			VolumeInput.setText(num.format(volume));
-
-			try {
-
-				FileWriter fileW = new FileWriter("Data.txt", true);
-				System.out.println("Writing data to Data.txt file");
-				fileW.write("Length:");
-				fileW.write(LengthInput.getText());
-				fileW.write(",");
-				fileW.write(" ");
-				fileW.write("Width:");
-				fileW.write(WidthInput.getText());
-				fileW.write(",");
-				fileW.write(" ");
-				fileW.write("Depth:");
-				fileW.write(DepthInput.getText());
-				fileW.write(",");
-				fileW.write(" ");
-				fileW.write("Volume:");
-				fileW.write(VolumeInput.getText());
-				fileW.write("\n");
-				fileW.close();
-
-				FileReader fileR = new FileReader("Data.txt");
-				BufferedReader buffIn = new BufferedReader(fileR);
-				String textData = buffIn.readLine();
-				System.out.println(textData);
-				buffIn.close();
-				System.out.print("\n");
-			} catch (IOException el) {
-				JOptionPane
-						.showMessageDialog(null, el.getMessage(), "ERROR", 2);
 			}
 		}
-	}
-
+	}	
 	class ExitButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			System.exit(0);
@@ -205,15 +197,15 @@ public class HotTubs extends JPanel {
 
 		public void focusLost(FocusEvent e) {
 			if (e.getSource() == WidthInput) {
-				CalculateVolButton.setFocusable(true);
+				Calculate.setFocusable(true);
 			}
 
 			else if (e.getSource() == LengthInput) {
-				CalculateVolButton.setFocusable(true);
+				Calculate.setFocusable(true);
 			}
 
 			else if (e.getSource() == DepthInput) {
-				CalculateVolButton.setFocusable(true);
+				Calculate.setFocusable(true);
 			}
 		}
 

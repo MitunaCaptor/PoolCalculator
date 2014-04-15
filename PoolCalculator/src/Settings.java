@@ -45,8 +45,15 @@ public class Settings extends JPanel {
 				input = "N/A";
 				CompanyNameInput.setText("N/A");
 			}
-
+			setName(input);
 		}
 	}
 
+	class ExitButtonHandler implements ActionListener
+    {
+      public void actionPerformed(ActionEvent e)
+      {
+        System.exit(0);
+      }
+    }
 }
