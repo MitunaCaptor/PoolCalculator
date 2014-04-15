@@ -15,3 +15,4 @@ Length: 4, Width: 4, Depth: 4, Volume:64
 Length: 4, Width: 4, Depth: 4, Volume:64
 Length: 4, Width: 4, Depth: 5, Volume:80
 Length: 4, Width: 4, Depth: 6, Volume:96
+Length: 4, Width: 4, Depth: 4, Volume:64

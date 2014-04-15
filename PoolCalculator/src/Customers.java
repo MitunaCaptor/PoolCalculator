@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -33,7 +34,14 @@ public class Customers extends JPanel {
 	 * for changes use DROP TABLE CustomerDatabase;
 	 */
 
+	private JButton NewCustomerButton;
+	private JButton ExitButton;
+
 	public Customers() {
+
+		NewCustomerButton = new JButton("Calculate");
+		ExitButton = new JButton("Exit");
+
 		// customer list display
 
 		String[] columnNames = { "RecordID", "Name", "Address", "City",
@@ -68,8 +76,14 @@ public class Customers extends JPanel {
 			}
 		}
 
+		NewCustomerButton = new JButton(" Add new Customer ");
+		ExitButton = new JButton(" Exit ");
+
 		add(scrollPane);
 		add(table);
+
+		add(NewCustomerButton);
+		add(ExitButton);
 
 		// buttons
 
