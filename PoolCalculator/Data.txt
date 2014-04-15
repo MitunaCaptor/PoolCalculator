@@ -11,3 +11,7 @@ Length:0, Width:0, Depth:0, Volume:0
 Length:0, Width:0, Depth:0, Volume:0
 Length:0, Width:0, Depth:0, Volume:0
 Length:0, Width:0, Depth:0, Volume:0
+Length: 4, Width: 4, Depth: 4, Volume:64
+Length: 4, Width: 4, Depth: 4, Volume:64
+Length: 4, Width: 4, Depth: 5, Volume:80
+Length: 4, Width: 4, Depth: 6, Volume:96

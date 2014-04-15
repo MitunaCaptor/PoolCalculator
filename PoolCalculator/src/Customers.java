@@ -1,9 +1,11 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 public class Customers extends JPanel {
 
@@ -31,11 +33,25 @@ public class Customers extends JPanel {
 	public Customers() {
 		// customer list display
 
+		String[] columnNames = { "RecordID", "Name", "Address", "City",
+				"State", "ZIP", "Phone" };
+
+		Object[][] data = { { "000", "PERSON NAME", "ADDRESS", new Integer(5),
+				new Boolean(false) } };
+
+		JTable table = new JTable(data, columnNames);
+
 		// buttons
 
 		// message area
 	}
-	
+
+	/**
+	 * Get a new database connection
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Connection getConnection() throws SQLException {
 		Connection conn = null;
 		Properties connectionProps = new Properties();
@@ -48,5 +64,28 @@ public class Customers extends JPanel {
 		return conn;
 	}
 
+	/**
+	 * Run a SQL command which does not return a recordset:
+	 * CREATE/INSERT/UPDATE/DELETE/DROP/etc.
+	 * 
+	 * @throws SQLException
+	 *             If something goes wrong
+	 */
+	public boolean executeUpdate(Connection conn, String command)
+			throws SQLException {
+		Statement stmt = null;
+		try {
+			stmt = conn.createStatement();
+			stmt.executeUpdate(command); // This will throw a SQLException if it
+											// fails
+			return true;
+		} finally {
+
+			// This will run whether we throw an exception or not
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+	}
 
 }

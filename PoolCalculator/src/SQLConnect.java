@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class DBDemo {
+public class SQLConnect {
 
 	private final String userName = "foxly_cis";
 	private final String password = "professorliu";
@@ -104,7 +104,7 @@ public class DBDemo {
 	 * Connect to the DB and do some stuff
 	 */
 	public static void main(String[] args) {
-		DBDemo app = new DBDemo();
+		SQLConnect app = new SQLConnect();
 		app.run();
 	}
 }

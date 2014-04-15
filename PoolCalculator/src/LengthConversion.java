@@ -161,12 +161,61 @@ public class LengthConversion extends JPanel {
 			}
 			meters = Double.parseDouble(input);
 
-			meters = centimeters * 10;
-			centimeters = meters / 10;
-			millimeters = centimeters / 10;
-			inches = feet / 12;
-			feet = yards / 3;
-			yards = feet * 3;
+			if (inches > 0) // calculate inches
+			{
+				feet = 0;
+				yards = 0;
+				millimeters = 0;
+				centimeters = 0;
+				meters = 0;
+
+				meters = centimeters * 10;
+				centimeters = meters / 10;
+				millimeters = centimeters / 10;
+				inches = feet / 12;
+				feet = yards / 3;
+				yards = feet * 3;
+			}
+			if (feet > 0) // calculate feet
+			{
+				inches = 0;
+				yards = 0;
+				millimeters = 0;
+				centimeters = 0;
+				meters = feet * 0;
+			}
+			if (yards > 0) // calculate yards
+			{
+				inches = 0;
+				feet = 0;
+				millimeters = 0;
+				centimeters = 0;
+				meters = 0;
+			}
+			if (millimeters > 0) // calculate millimeters
+			{
+				inches = 0;
+				feet = 0;
+				yards = 0;
+				centimeters = 0;
+				meters = 0;
+			}
+			if (centimeters > 0) // calculate centimeters
+			{
+				inches = 0;
+				feet = 0;
+				yards = 0;
+				millimeters = 0;
+				meters = 0;
+			}
+			if (meters > 0) // calculate meters
+			{
+				inches = 0;
+				feet = 0;
+				yards = 0;
+				millimeters = 0;
+				centimeters = 0;
+			}
 
 			InchesInput.setText(num.format(inches));
 			YardsInput.setText(num.format(yards));
