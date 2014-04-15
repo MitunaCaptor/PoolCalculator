@@ -5,7 +5,9 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableColumn;
 
 public class Customers extends JPanel {
 
@@ -18,8 +20,9 @@ public class Customers extends JPanel {
 	private final String serverName = "198.251.76.197";
 	private final int portNumber = 3306;
 	private final String dbName = "foxly_cis";
+
 	/** The name of the table we are testing with */
-	private final String tableName = "CustomerDatabase";
+	// private final String tableName = "CustomerDatabase";
 
 	/*
 	 * CREATE TABLE CustomerDatabase ( RecordID NUMERIC(5), Name VARCHAR(64),
@@ -36,10 +39,37 @@ public class Customers extends JPanel {
 		String[] columnNames = { "RecordID", "Name", "Address", "City",
 				"State", "ZIP", "Phone" };
 
-		Object[][] data = { { "000", "PERSON NAME", "ADDRESS", new Integer(5),
-				new Boolean(false) } };
+		Object[][] data = {
+				{ "001", "Professor Liu", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) },
+				{ "002", "Lookman", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) },
+				{ "003", "Regis", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) },
+				{ "004", "Carlos", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) },
+				{ "005", "Test", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) },
+				{ "006", "Test2", "3300 N Campbell", "Chicago", "IL",
+						new Integer(5), new Integer(10) } };
 
 		JTable table = new JTable(data, columnNames);
+
+		JScrollPane scrollPane = new JScrollPane(table);
+		table.setFillsViewportHeight(true);
+
+		TableColumn column = null;
+		for (int i = 0; i < 5; i++) {
+			column = table.getColumnModel().getColumn(i);
+			if (i == 2) {
+				column.setPreferredWidth(100); // third column is bigger
+			} else {
+				column.setPreferredWidth(50);
+			}
+		}
+
+		add(scrollPane);
+		add(table);
 
 		// buttons
 

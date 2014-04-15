@@ -16,14 +16,14 @@ public class GroupProject extends JFrame {
 		getContentPane().add(gui2);
 
 		gui2.addTab("General", new General());
-		gui2.addTab("Swimming Pool", new PoolCalculator());
+		gui2.addTab("Pool Calculator", new PoolCalculator());
 		gui2.addTab("Hot Tubs", new HotTubs());
-		gui2.addTab("Length Conversion", new LengthConversion());
-		gui2.addTab("Temperature Conversion", new TemperatureCalc());
+		gui2.addTab("Length Convert", new LengthConversion());
+		gui2.addTab("Unit Convert", new UnitConverter());
+		gui2.addTab("Temp Convert", new TemperatureCalc());
 		gui2.addTab("Customers", new Customers());
 		gui2.addTab("Settings", new Settings());
 
-		
 		getContentPane().add(gui2);
 		setVisible(true);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -41,6 +41,7 @@ public class GroupProject extends JFrame {
 		new PoolCalculator();
 		new HotTubs();
 		new LengthConversion();
+		new UnitConverter();
 		new TemperatureCalc();
 		new Settings();
 		new Customers();
