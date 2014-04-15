@@ -1,4 +1,3 @@
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -18,7 +17,6 @@ import javax.swing.JTextField;
 public class PoolCalculator extends JPanel {
 
 	private static final long serialVersionUID = 2L;
-
 
 	private JLabel poolWidthLabel;
 	private JLabel poolLengthLabel;
@@ -52,30 +50,30 @@ public class PoolCalculator extends JPanel {
 		this.VolumeInput.setEditable(false);
 
 		add(poolWidthLabel);
-		poolWidthLabel.setBounds( 200, 25, 260, 20 );
+		poolWidthLabel.setBounds(200, 25, 260, 20);
 		add(WidthInput);
-		WidthInput.setBounds( 500, 25, 150, 20 );
+		WidthInput.setBounds(500, 25, 150, 20);
 
 		add(poolLengthLabel);
-		poolLengthLabel.setBounds( 200, 60, 260, 20 );
+		poolLengthLabel.setBounds(200, 60, 260, 20);
 		add(LengthInput);
-		LengthInput.setBounds( 500, 60, 150, 20 );
+		LengthInput.setBounds(500, 60, 150, 20);
 
 		add(poolDepthLabel);
-		poolDepthLabel.setBounds( 200, 100, 260, 20 );
+		poolDepthLabel.setBounds(200, 100, 260, 20);
 		add(DepthInput);
-		DepthInput.setBounds( 500, 100, 150, 20 );
+		DepthInput.setBounds(500, 100, 150, 20);
 
 		add(CalculateVolButton);
-		CalculateVolButton.setBounds(250,250,150,20);
+		CalculateVolButton.setBounds(250, 250, 150, 20);
 		add(ExitButton);
-		ExitButton.setBounds(450,250,150,20);
+		ExitButton.setBounds(450, 250, 150, 20);
 
 		add(poolVolumeLabel);
-		poolVolumeLabel.setBounds(200,300,150,20);
+		poolVolumeLabel.setBounds(200, 300, 150, 20);
 		add(VolumeInput);
-		VolumeInput.setBounds(500,300,150,20);
-		
+		VolumeInput.setBounds(500, 300, 150, 20);
+
 		CalculateVolButton.setMnemonic('C');
 		ExitButton.setMnemonic('X');
 

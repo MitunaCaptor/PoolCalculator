@@ -1,9 +1,5 @@
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -30,7 +26,6 @@ public class HotTubs extends JPanel {
 
 		cmdCalculate = new JButton("Calculate");
 		cmdExit = new JButton("Exit");
-		mainFrame = new JFrame();
 
 		add(cmdCalculate);
 		add(cmdExit);
