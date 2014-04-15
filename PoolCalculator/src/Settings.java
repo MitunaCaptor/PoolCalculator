@@ -24,7 +24,7 @@ public class Settings extends JPanel {
 		ApplySettingsButton = new JButton("Apply Settings");
 		ExitButton = new JButton("Exit");
 
-		CompanyNameInput = new JTextField(5);
+		CompanyNameInput = new JTextField(10);
 
 		add(CompanyNameLabel);
 		add(CompanyNameInput);
