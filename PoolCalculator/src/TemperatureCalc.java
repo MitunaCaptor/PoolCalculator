@@ -10,11 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TemperatureCalc extends JPanel
-
-{
-
-	private static final long serialVersionUID = 1L;
+public class TemperatureCalc extends JPanel {
+	private static final long serialVersionUID = 5L;
 
 	private JLabel EnterTemp;
 	private JLabel ResultLabel;
@@ -41,23 +38,23 @@ public class TemperatureCalc extends JPanel
 
 		this.ResultOutput.setEditable(false);
 		setLayout(null);
-		
+
 		add(EnterTemp);
-		EnterTemp.setBounds( 250, 25, 260, 20 );
+		EnterTemp.setBounds(250, 25, 260, 20);
 		add(TempInput);
-		TempInput.setBounds( 500, 25, 70, 20 );
+		TempInput.setBounds(500, 25, 70, 20);
 		add(TypeIn);
-		TypeIn.setBounds( 600, 25, 50, 20 );
+		TypeIn.setBounds(600, 25, 50, 20);
 
 		add(ResultLabel);
-		ResultLabel.setBounds( 250, 70, 260, 20 );
+		ResultLabel.setBounds(250, 70, 260, 20);
 		add(ResultOutput);
-		ResultOutput.setBounds( 500, 70, 70, 20 );
+		ResultOutput.setBounds(500, 70, 70, 20);
 
 		add(ConvertButton);
-		ConvertButton.setBounds( 250, 115, 100, 20 );
+		ConvertButton.setBounds(250, 115, 100, 20);
 		add(ExitButton);
-		ExitButton.setBounds( 500, 115, 100, 20 );
+		ExitButton.setBounds(500, 115, 100, 20);
 
 		ConvertButton.setMnemonic('C');
 		ExitButton.setMnemonic('X');
@@ -76,37 +73,22 @@ public class TemperatureCalc extends JPanel
 	class ConvertButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			DecimalFormat num = new DecimalFormat(",###.##");
-			
+
 			double fahrenheit = 0, celcius = 0;
 
 			TempInput.setEnabled(true);
-			if(items[0] != null)
-			{
-				if (!TempInput.getText().equals(""))
-				{
+			if (TempInput.getText().equals("")) {
+				ResultOutput.setText("0");
+			} else if (TypeIn.getSelectedIndex() == 0) {
 				fahrenheit = Double.parseDouble(TempInput.getText());
-				celcius = (Double)(fahrenheit - 32)*(5)/(9);
+				celcius = (Double) (fahrenheit - 32) * (5) / (9);
 				ResultOutput.setText(num.format(celcius));
-				}
-				else
-				{
-				ResultOutput.setText("0");
-				}
-			}
-			else if(items[1] != null)
-			{
-				if (!TempInput.getText().equals(""))
-				{
+			} else if (TypeIn.getSelectedIndex() == 1) {
 				celcius = Double.parseDouble(TempInput.getText());
-				fahrenheit = (Double)(celcius) * (9) / (5) + 32;
+				fahrenheit = (Double) (celcius) * (9) / (5) + 32;
 				ResultOutput.setText(num.format(fahrenheit));
-				}
-				else
-				{
-				ResultOutput.setText("0");
-				}
 			}
-			
+
 		}
 	}
 
@@ -120,7 +102,6 @@ public class TemperatureCalc extends JPanel
 		public void focusGained(FocusEvent e) {
 			if (e.getSource() == TempInput) {
 				TempInput.setText("");
-				ResultOutput.setText("");
 			}
 
 		}
@@ -128,7 +109,7 @@ public class TemperatureCalc extends JPanel
 		public void focusLost(FocusEvent e) {
 			if (e.getSource() == TempInput) {
 				ConvertButton.setFocusable(true);
-				
+
 			}
 
 		}

@@ -23,7 +23,7 @@ public class Customers extends JPanel {
 	private final String dbName = "foxly_cis";
 
 	/** The name of the table we are testing with */
-	// private final String tableName = "CustomerDatabase";
+	private final String tableName = "CustomerDatabase";
 
 	/*
 	 * CREATE TABLE CustomerDatabase ( RecordID NUMERIC(5), Name VARCHAR(64),
@@ -38,9 +38,6 @@ public class Customers extends JPanel {
 	private JButton ExitButton;
 
 	public Customers() {
-
-		NewCustomerButton = new JButton("Calculate");
-		ExitButton = new JButton("Exit");
 
 		// customer list display
 
@@ -97,6 +94,7 @@ public class Customers extends JPanel {
 	 * @throws SQLException
 	 */
 	public Connection getConnection() throws SQLException {
+		System.out.println("Connecting to database...");
 		Connection conn = null;
 		Properties connectionProps = new Properties();
 		connectionProps.put("user", this.userName);
